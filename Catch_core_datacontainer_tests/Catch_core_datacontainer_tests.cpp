@@ -2,14 +2,14 @@
 
 #define DCON_TRAP_INVALID_STORE
 
-#include "..\CommonIncludes\catch.hpp"
-#include "..\CommonIncludes\ve.hpp"
-#include "..\CommonIncludes\common_types.hpp"
+#include "../CommonIncludes/catch.hpp"
+#include "../CommonIncludes/ve.hpp"
+#include "../CommonIncludes/common_types.hpp"
 #include "car_owner_basic.hpp"
 #include "car_owner_basic2.hpp"
 #include "car_owner_basic3.hpp"
 #include "expandable_test.hpp"
-#include "..\CommonIncludes\common_types.cpp"
+#include "../CommonIncludes/common_types.cpp"
 
 TEST_CASE("simple case", "[core_datacontainer_tests]") {
 	auto ptr = std::make_unique< car_owner_basic::data_container >();

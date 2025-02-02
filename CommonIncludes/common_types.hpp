@@ -17,10 +17,12 @@
 #include <vector>
 #include <bit>
 
-#ifdef _MSC_VER 
-#include <intrin.h>
-#else
-#include <x86intrin.h>
+#if defined(_MSC_VER)
+    #include <intrin.h>  // For MSVC (Windows)ws)
+#elif defined(__x86_64__) || defined(_M_X64)
+    #include <x86intrin.h>  // For x86 (GCC, Clang)
+#elif defined(__aarch64__)
+    #include <arm_neon.h>  // For macOS ARM64 (Apple Silicon)
 #endif
 
 #ifdef _WIN64

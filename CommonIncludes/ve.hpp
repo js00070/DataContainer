@@ -4,7 +4,12 @@
 // This file provided as part of the DataContainer project
 //
 
+#if defined(__aarch64__)
+#include <arm_neon.h>
+#else
 #include <immintrin.h>
+#endif
+
 #include <cstdint>
 #include <new>
 #include <cassert>
@@ -12,6 +17,9 @@
 #include <cstdint>
 #include "common_types.hpp"
 
+#if defined(__APPLE__) && defined(__MACH__)
+#define VE_NO_TBB
+#endif
 
 #ifndef VE_NO_TBB
 #ifdef PREFER_ONE_TBB
@@ -44,8 +52,12 @@ namespace concurrency = oneapi::tbb;
 #else
 #ifdef __SSE3__ //MSVC won't define it by default
 #include "ve_sse3.hpp"
-#else
+#elif defined(__SSE__)
 #include "ve_sse.hpp"
+#elif defined(__aarch64__)
+#include "ve_neon.hpp"
+#else
+#error "Unsupported architecture: Must have AVX, SSE, or NEON support"
 #endif
 #endif
 #endif
