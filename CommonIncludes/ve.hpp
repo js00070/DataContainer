@@ -55,9 +55,7 @@ namespace concurrency = oneapi::tbb;
 #elif defined(__SSE__)
 #include "ve_sse.hpp"
 #elif defined(__aarch64__)
-#include "ve_neon.hpp"
-#else
-#error "Unsupported architecture: Must have AVX, SSE, or NEON support"
+#include "ve_sse.hpp" // use sse2neon converter inside
 #endif
 #endif
 #endif

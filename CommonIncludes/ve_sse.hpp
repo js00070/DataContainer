@@ -4,7 +4,11 @@
 // This file provided as part of the DataContainer project
 //
 
+#ifdef __x86_64__
 #include <smmintrin.h>
+#elif defined(__aarch64__)
+#include "sse2neon.hpp"
+#endif
 
 namespace ve {
 	constexpr int32_t vector_size = 4;
