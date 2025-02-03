@@ -17,8 +17,8 @@
 #include <cstdint>
 #include "common_types.hpp"
 
-#if defined(__APPLE__) && defined(__MACH__)
-#define VE_NO_TBB
+#if defined(__APPLE__)
+#define PREFER_ONE_TBB
 #endif
 
 #ifndef VE_NO_TBB

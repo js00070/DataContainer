@@ -1,1 +1,1 @@
-cd Catch_core_datacontainer_tests && clang++ -std=c++20 -I.. Catch_core_datacontainer_tests.cpp -o Catch_core_datacontainer -DNDEBUG -DDCON_NO_VE -DNO_SIMD -DDCON_USE_SIMPLE_VECTOR
+cd Catch_core_datacontainer_tests && clang++ -std=c++20 -I.. -I/opt/homebrew/Cellar/tbb/2022.0.0/include/ Catch_core_datacontainer_tests.cpp -o Catch_core_datacontainer -DNDEBUG -DDCON_NO_VE -DNO_SIMD -DDCON_USE_SIMPLE_VECTOR
